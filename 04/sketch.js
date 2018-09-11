@@ -67,7 +67,7 @@ var select = 0;
 
 function setup() {
   //Función que crea el canvas y determina su tamaño.
-  createCanvas(700, 700);
+  createCanvas(windowWidth, windowHeight);
   //Función que determina el color del fondo.
   background(255);
 }
