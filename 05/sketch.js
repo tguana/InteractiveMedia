@@ -73,7 +73,7 @@ function draw() {
     background(128 - (min / 5), 128 - (min / 5), 128 - (min / 5));
   }
   //Función condicional que se activa cuando son mas de las 6pm.
-  if (hora > 18) {
+  if (hora => 18) {
     //Función que determina que contenidos se ven afectados.
     push();
     //Función que determia el cambio de eje sobre el cual gira la figura.
@@ -114,7 +114,7 @@ function draw() {
     fill(255, 255, 153);
     ellipse(0, 250, 50, 50);
     //Función condicional que se activa cuando son más de las 3pm.
-    if (hora > 15 && hora < 16) {
+    if (hora => 15 && hora <= 16) {
       //Función que determina el contorno.
       noStroke();
       //Función que determina el color del relleno.
@@ -133,7 +133,7 @@ function draw() {
   //Función que determina el color del contorno.
   stroke(51);
   //Función condicional que se activa cuando son más de las 6pm.
-  if (hora > 18) {
+  if (hora => 18) {
     //Función que determina el color del relleno.
     fill(0);
   }
@@ -155,7 +155,7 @@ function draw() {
   //Función que determina el color del contorno.
   stroke(77);
   //Función condicional que se activa cuando son más de las 6pm.
-  if (hora > 18) {
+  if (hora => 18) {
     //Función que determina el color del relleno.
     fill(26);
   }
@@ -176,7 +176,7 @@ function draw() {
   rect(730, 490, 120, 300);
   rect(850, 435, 120, 300);
   //Función condicional que se activa cuando son más de las 6pm.
-  if (hora > 18) {
+  if (hora => 18) {
     //Función que determina el color del relleno.
     fill(255, 255, 0);
   }
@@ -282,4 +282,5 @@ function draw() {
   rect(ventanasX + 855, ventanasY + 140, 20, 20);
   rect(ventanasX + 855, ventanasY + 175, 20, 20);
   rect(ventanasX + 855, ventanasY + 210, 20, 20);
+
 }
