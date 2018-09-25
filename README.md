@@ -5,3 +5,4 @@ Ejercicios de la clase Diseño en medios interactivos de Thomas Guana.
 3. [Flipbook](https://tguana.github.io/mediosInteractivos/03/) 
 4. [Herramienta de dibujo](https://tguana.github.io/mediosInteractivos/04/)
 5. [Mi tiempo](https://tguana.github.io/mediosInteractivos/05/)
+6. [Video interactivo](https://tguana.github.io/mediosInteractivos/06/)
