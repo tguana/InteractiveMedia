@@ -7,3 +7,4 @@ Ejercicios de la clase Diseño en medios interactivos de Thomas Guana.
 5. [Mi tiempo](https://tguana.github.io/mediosInteractivos/05/)
 6. [Video interactivo](https://tguana.github.io/mediosInteractivos/06/)
 7. [Especies](https://editor.p5js.org/DaftTom/sketches/ryb4YdUq7)
+8. [Especies 2.0](https://editor.p5js.org/DaftTom/sketches/HyaEhhzjX)
