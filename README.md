@@ -10,4 +10,4 @@ Ejercicios de la clase Diseño en medios interactivos de Thomas Guana.
 8. [Especies 2.0](https://editor.p5js.org/DaftTom/sketches/HyaEhhzjX)
 9. [Avances juego FullScreen](https://editor.p5js.org/DaftTom/full/BkRuAgTsm) / [Avances juego Codigo](https://editor.p5js.org/DaftTom/sketches/BkRuAgTsm)
 10. [Juego FullScreen](https://editor.p5js.org/DaftTom/full/BkRuAgTsm)
-11. [Multijugador](https://tguana.github.io/mediosInteractivos/JuegoF/)
+11. [Multijugador](https://tguana.github.io/mediosInteractivos/JuegoF/) / [Opción 2](https://editor.p5js.org/DaftTom/sketches/BkRuAgTsm)
