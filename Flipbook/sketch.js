@@ -1,26 +1,26 @@
-// Grupo de variables que determinan el tamaño y movimineto de la nave en el eje x.
+// Group of variables that determine the size and movement of the ship on the x-axis.
 var x = 200;
 var x1 = 220;
 var x2 = 180;
-// Grupo de variables que determinan el tamaño y movimineto de la nave en el eje y.
+// Group of variables that determine the size and movement of the ship on the y-axis.
 var y = 40;
 var y1 = 80;
 var y2 = 70;
-//Variable que determina la dirección del movimiento lateral de la naves.
+// Variable that determines the direction of the lateral movement of the ships.
 var d = 4;
-// Variable que determina la dirección del movimiento vertical de la nave.
+// Variable that determines the direction of the vertical movement of the ships.
 var dy = 0;
-// Variable que determina el tamaño de la llama.
+// Variable that determines the size of the flame.
 var tam = 20;
-// Variable que determina la velocidad de los asteroides.
+// Variable that determines the speed of asteroids.
 var ay = 1;
-// Variable que determina la velocidad de los planetas.
+// Variable that determines the speed of planets.
 var py = 1;
-// Variable que determina la velocidad de las "lineas de velocidad".
+// Variable that determines the speed of the "speed lines".
 var ry = 1;
-//  Variable que separa las "lineas de velocidad" entre ellas.
+//  Variable that separates the "speed lines" between them.
 var rx = 10;
-// Variable que determina la velocidad del cuadro final o "hiper-velocidad"
+// Variable that determines the speed of the final frame or "hyper-speed"
 var fy = 10;
 
 function setup() {
@@ -33,13 +33,13 @@ function setup() {
 
 function draw() {
 
-  // Función que determina el color del fondo.
+  // Function that determines the background color.
   background(0, 13, 26);
-  // Función que determina el color del contorno,
+  // Function that determines the color of the outline.
   stroke(102, 255, 153);
-  // Función que determina el color del relleno.
+  // Function that determines the color of the fill.
   fill(255, 102, 0);
-  // Conjunto de ellipses que conforman los planetas.
+  // Set of ellipses that form the planets.
   ellipse(250, py - 50, 50, 50);
   fill(153, 0, 153);
   ellipse(400, py - 300, 200, 200);
@@ -49,9 +49,9 @@ function draw() {
   ellipse(150, py - 400, 100, 100);
   fill(151, 204, 51);
   ellipse(250, py - 600, 150, 150);
-	// Función que determina que no debe haber contorno.
+  // Function determines that there should be no outline.
   noStroke();
-  // Con junto de rectangulos que conforman las "lineas de velocidad".
+  // Set of boxes that make up the "speed lines".
   fill(255);
   rect(40, ry - 40, 3, 30);
   rect(200 - rx, ry - 40, 3, 30);
@@ -96,43 +96,43 @@ function draw() {
   rect(250 - rx, ry - 80, 3, 30);
   rect(280 + rx, ry - 60, 3, 30);
   rect(0, fy - 1000, 400, 900);
-  // Función que determina el incremento en la variable py "+3".
+  // Function that determines the increase in the variable py and "+3".
   py = py + 3;
-  // Función condicional que determina el incremento en las variables py,ay,ry,fy sí el frameCount es mayor que 195.
+  // Conditional function that determines the increase in the variables py, ay, ry, f and if the frameCount is greater than 195.
   if (frameCount > 195) {
     py = py + 10;
     ay = ay + 10;
     ry = ry + 22;
     fy = fy + 20;
   }
-  // Función que determina el color del contorno.
+  // Function that determines the color of the outline.
   stroke(255, 0, 0);
-  // Función que determina el color del relleno.
+  // Function that determines the color of the fill.
   fill(255, 102, 0)
-  // Funcion que crea la llama de la nave.
+  // Function that creates the flame of the ship.
   ellipse(x, y2 + 10, tam, tam);
   stroke(255, 204, 0);
-  // Funcion que determina el color del relleno.
+  // Function that determines the color of the filling.
   fill(204, 0, 0);
-  // Función que crea el exterior de la nave.
+  // Function that creates the exterior of the ship.
   beginShape();
   vertex(x, y - 15);
   vertex(x1 + 10, y1 + 10);
   vertex(x, y2 + 10);
   vertex(x2 - 10, y1 + 10);
   endShape(CLOSE);
-  // Función que determina que no debe haber contorno.
+  // Function determines that there should be no outline.
   noStroke();
-  // Función que determina el color del relleno.
+  // Function that determines the color of the filling.
   fill(0, 0, 204);
-  //Función que crea el interior de la nave.
+  // Function that creates the interior of the ship.
   beginShape();
   vertex(x, y);
   vertex(x1, y1);
   vertex(x, y2);
   vertex(x2, y1);
   endShape(CLOSE);
-  // Función condicional que determina el incremento de la dirección lateral de la nave si el frameCount se encuentra entre 20 y 175.
+  // Conditional function that determines the increase in the lateral direction of the ship if the frameCount is between 20 and 175.
   if (frameCount < 175 && frameCount > 20) {
     //
     x = x + 1 * d;
@@ -141,37 +141,37 @@ function draw() {
     //
     x2 = x2 + 1 * d;
   }
-  // Función condicional que determina la dirección lateral de la nave si el frameCount se encuentra entre 20 y 175.
+  // Conditional function that determines the increase in the lateral direction of the ship if the frameCount is between 20 and 175.
   if (x > 300 && frameCount < 175 && frameCount > 20) {
     d = -4;
   }
-  // Función condicional que determina la dirección lateral de la nave si el frameCount se encuentra entre 20 y 175.
+  // Conditional function that determines the increase in the lateral direction of the ship if the frameCount is between 20 and 175.
   if (x < 100 && frameCount < 175 && frameCount > 20) {
     d = 4;
   }
-  // Conjunto de funciones que determinan la dirección vertical de la nave.
+  // Set of functions that determine the vertical direction of the ship.
   y = y + 1 * dy;
   y1 = y1 + 1 * dy;
   y2 = y2 + 1 * dy;
-  // Función condicional que determina la dirección y velocidad vertical de la nave si la variable "y" es menor que 300
+  // Conditional function that determines the direction and vertical speed of the ship if the variable "y" is less than 300
   if (y < 300) {
     dy = 2;
   }
-  // Determina la excepción de la anterior función.
+  //Determine the exception of the previous function.
   else {
     dy = 0;
   }
-  // Función condicional que determina la dirección y velocidad vertical de la nave si el frameCount es mayor que 200.
+  // Conditional function that determines the direction and vertical speed of the ship if the frameCount is greater than 200.
   if (frameCount > 200) {
     dy = -15;
   }
-  // Función cpndicional que determina el incremento en el tamaño de la llama.
+  // Conditional function that determines the increase in flame size.
   if (frameCount > 195 && tam < 35) {
     tam = tam + 1;
   }
-  // Función que determina el color del relleno.
+  // Function that determines the color of the fill.
   fill(102, 51, 0);
-  // Conjunto de funciones que crean el asteroide #1.
+  // Set of functions that create asteroid # 1.
   beginShape();
   vertex(160 + 5, 109 + ay - 80);
   vertex(146 + 5, 36 + ay - 80);
@@ -191,7 +191,7 @@ function draw() {
   vertex(50 + 5, 100 + ay - 80);
   vertex(103 + 5, 100 + ay - 80);
   endShape(CLOSE);
-  // Conjunto de funciones que crean el asteroide #2.
+  // Set of functions that create asteroid # 2.
   fill(102, 51, 0);
   beginShape();
   vertex(345, 109 + ay - 205);
@@ -212,7 +212,7 @@ function draw() {
   vertex(270, 100 + ay - 205);
   vertex(323, 100 + ay - 205);
   endShape(CLOSE);
-  // Conjunto de funciones que crean el asteroide #3.
+  // Set of functions that create asteroid # 3.
   fill(102, 51, 0);
   beginShape();
   vertex(135, 79 + ay - 300);
@@ -233,7 +233,7 @@ function draw() {
   vertex(20, 100 + ay - 300);
   vertex(83, 90 + ay - 300);
   endShape(CLOSE);
-  // Conjunto de funciones que crean el asteroide #4.
+  // Set of functions that create asteroid # 4.
   fill(102, 51, 0);
   beginShape();
   vertex(115, 129 + ay - 500);
@@ -254,7 +254,7 @@ function draw() {
   vertex(77, 95 + ay - 500);
   vertex(85, 85 + ay - 500);
   endShape(CLOSE);
-  // Conjunto de funciones que crean el asteroide #5.
+  // Set of functions that create asteroid # 5.
   fill(102, 51, 0);
   beginShape();
   vertex(345, 129 + ay - 500);
@@ -275,9 +275,9 @@ function draw() {
   vertex(255, 105 + ay - 500);
   vertex(323, 85 + ay - 500);
   endShape(CLOSE);
-  // Función que determina el incremento de la variable "ay" en +4.
+  // Function that determines the increase of the "ay" variable by +4.
   ay = ay + 4;
-  // Funcion que determina el fin de la animación.
+  // Function that determines the end of the animation.
   if (frameCount > 240) {
     //
     background(255);
