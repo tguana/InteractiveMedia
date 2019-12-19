@@ -49,7 +49,7 @@ function setup()
   stroke(0);
 	arc(433,391,30,40,PI,PI);
   
-  //Estructura cuadros
+  // Frame structure.
   fill(117,157,57);
   beginShape();
   vertex(330, 568);
@@ -365,7 +365,7 @@ function setup()
 	vertex(543, 275);
   endShape();
   
-  //1er plano
+  // 1st plane
   noFill();
 	bezier(217,507,217,461,241,434,285,434);
   stroke(228,225,138);
@@ -501,7 +501,7 @@ function setup()
   stroke(255,204,102);
   arc(630,519,117,99, PI, PI + HALF_PI);
   
-  //Circulos y contornos
+  // Circles and contours.
   noStroke();
   smooth(80);
   fill(100,167,197,100);
