@@ -1,12 +1,12 @@
-// Estado 0 = Introducción
-// Estado 1 = Juego
-// Estado 2 = Perdió
-// Estado 3 = Intrucciones
-//Determina la posición del personaje en el eje X.
+// State 0 = Introduction
+// State 1 = Game
+// State 2 = Lose
+// State 3 = Instructions
+//Determines the position of the character on the X axis.
 var moviX;
-//Determina la velocidad del personaje en el eje X.
+//Determines the speed of the character on the X axis.
 var velx;
-//
+//Starting state
 var estado = 10;
 //
 var rocas = [];
@@ -26,17 +26,17 @@ var color2 = 100;
 var color3 = 100;
 //
 var cselect;
-//Determina el tamaño del jugador.
+//Determines the size of the player.
 var tam = 80;
-//Determina el tamaño del jugador.
+//Determines the size of the player.
 var tam1 = 355;
-//Conjunto de variables que determinann la ubicación del botón #1.
+//Set of variables that determine the location of button # 1.
 var bx0;
 var by0;
-//Conjunto de variables que determinann la ubicación del botón #2.
+//Set of variables that determine the location of button # 2.
 var bx1;
 var by1;
-//Conjunto de variables que determinann la ubicación del botón #3.
+//Set of variables that determine the location of button # 3.
 var bx2;
 var by2;
 //
@@ -142,7 +142,7 @@ function setup() {
   //
   alto = windowHeight;
 
-  //crea un canvas del tamaño de la ventana.
+  //Creates a canvas the size of the window.
   createCanvas(windowWidth, windowHeight);
 
   //
@@ -152,7 +152,7 @@ function setup() {
   //
   cantidad2 = random(3, 5);
 
-  //Inicia al jugador en el centro de la pantalla.
+  //Initiates the  player in the center of the screen.
   x = width / 2;
 
   bx0 = 0;
@@ -163,24 +163,24 @@ function setup() {
   by1 = windowHeight - (windowHeight / 4) + (tam / 2);
   by2 = windowHeight - (windowHeight / 4) + (tam / 2);
 
-  //Función que recorre, crea y guarada en el arreglo las rocas.
+  //Function that runs, creates and stores the rocks in the arrangement.
   for (var i = 0; i < cantidad1; i = i + 1) {
     aX = random(0, windowWidth - 10);
     aY = random(-100, -1500);
     rocas[i] = new roca(aX, aY);
   }
-  //Función que recorre, crea y guarada en el arreglo los bonos.
+  //Function that runs, creates and saves score bonuses in the array.
   for (var i1 = 0; i1 < cantidad2; i1 = i1 + 1) {
     bX = random(0, windowWidth - 10);
     bY = random(-100, -1500);
     bonos[i1] = new bonoR(bX, bY);
-    //Función que recorre, crea y guarada en el arreglo los bonos.
+    //Function that runs, creates and saves score bonuses in the array.
     for (var i2 = 0; i2 < cantidad2; i2 = i2 + 1) {
       cX = random(0, windowWidth - 10);
       cY = random(-100, -1500);
       bonos1[i2] = new bonoG(bX, bY);
     }
-    //Función que recorre, crea y guarada en el arreglo los bonos.
+    //Function that runs, creates and saves score bonuses in the array.
     for (var i3 = 0; i3 < cantidad2; i3 = i3 + 1) {
       dX = random(0, windowWidth - 10);
       dY = random(-100, -1500);
@@ -281,7 +281,7 @@ function draw() {
         estado = 2;
       }
     }
-    //Función que recorre el arreglo y dibuja los bonos.
+    //Function that records the arrangement and draws the score bonuses.
     for (var i1 = 0; i1 < bonos.length; i1 = i1 + 1) {
       bonos[i1].dibujarse();
       bonos[i1].moverse();
@@ -324,17 +324,17 @@ function draw() {
       }
     }
 
-    //Conjunto de funciones que crean el boton #3.
+    //Set of functions that create button # 3.
     fill(255, 0, 0);
     rect(bx0, by0, tam1, tam1);
-    //Conjunto de funciones que crean el boton #4.
+    //Set of functions that create button # 4.
     fill(0, 255, 0);
     rect(bx1, by1, tam1, tam1);
-    //Conjunto de funciones que crean el boton #5.
+    //Set of functions that create button # 5.
     fill(0, 0, 255);
     rect(bx2, by2, tam1, tam1);
 
-    //Asigna valores a la velocidad de acuerdo a la rotación del dispositivo.
+    //Assigns values to the speed according to the rotation of the device.
     velx = map(rotationY, -90, 90, -10, 10);
 
     //Crea al jugador.
@@ -351,7 +351,7 @@ function draw() {
     stroke(100, 100, 100);
     fill(100, 100, 100);
     strokeWeight(5);
-    //Crea el piso.
+    //Creates the floor.
     line(0, windowHeight - (windowHeight / 4) + (tam / 2), windowWidth, windowHeight - (windowHeight / 4) + (tam / 2))
     pop();
     push();
@@ -361,47 +361,47 @@ function draw() {
     image(title, width / 2, height / 30, 100, 50);
     pop();
 
-    //suma la velocidad en x y en y a las posiciones de la elipse
+    //adds the velocity in x and y to the positions of the ellipse.
     x = x + velx;
 
-    //Determina los limites del movimiento del jugador.
+    //Determines the limits of player movement.
     x = constrain(x, tam / 2, width - tam / 2);
 
-    //Función que determina el color seleccionado en el botón de color #1.
+    //Function that determines the color selected in color button # 1.
     if (mouseX > bx0 && mouseX < bx0 + tam1 && mouseY > by0 && mouseY < by0 + tam1) {
       cselect = 0;
     }
-    //Función que determina el color seleccionado en el botón de color #2.
+    //Function that determines the color selected in color button # 2.
     if (mouseX > bx1 && mouseX < bx1 + tam1 && mouseY > by1 && mouseY < by1 + tam1) {
       cselect = 1;
     }
-    //Función que determina el color seleccionado en el botón de color #3.
+    //Function that determines the color selected in color button # 3.
     if (mouseX > bx2 && mouseX < bx2 + tam1 && mouseY > by2 && mouseY < by2 + tam1) {
       cselect = 2;
     }
 
 
-    //Función condicional que se activa cuando el mouse está presionado o click.
+    //Conditional function that is activated when the mouse is pressed or clicked.
     if (mouseIsPressed) {
-      //Función condicional que se activa cuando se selecciona el botón de color #1.
+      //Conditional function that is activated when color button # 1 is selected.
       if (cselect == 0) {
-        //Función que determina el color del relleno.
+        //Function that determines the color of the fill.
         color1 = 255;
         color2 = 0;
         color3 = 0;
         robo = roboR;
       }
-      //Función condicional que se activa cuando se selecciona el botón de color #2.
+      //Conditional function that is activated when color button # 2 is selected.
       if (cselect == 1) {
-        //Función que determina el color del relleno.
+        //Function that determines the color of the fill.
         color1 = 0;
         color2 = 255;
         color3 = 0;
         robo = roboG;
       }
-      //Función condicional que se activa cuando se selecciona el botón de color #3.
+      //Conditional function that is activated when color button # 3 is selected.
       if (cselect == 2) {
-        //Función que determina el color del relleno.
+        //Function that determines the color of the fill.
         color1 = 0;
         color2 = 0;
         color3 = 255;
@@ -536,7 +536,7 @@ function draw() {
   }
 }
 
-// 0= Inicio / 1=Juego / 2=Perdio / 3=Instrucciones / 4? / 5=Instrucciones / 6= 1er Turno / 7= 2do turno.
+// 0= Start / 1=Game / 2=Lose / 3=Instructions / 4? / 5=Instructions / 6= 1st Turn / 7= 2nd Turn.
 function mouseReleased() {
   if (estado == 0 && contador == 1) {
     estado = 3;
@@ -606,16 +606,16 @@ function mouseReleased() {
 
 function roca(aX, aY) {
   imageMode(CENTER);
-  // caraceristicas
+  // Characteristics
   this.x = aX;
   this.y = aY;
-  // habilidades
-  //Función que crea la forma de la roca.
+  // Skills
+  //Function that creates the shape of the rock.
   this.dibujarse = function() {
     image(obstaculo, this.x, this.y, 60, 60);
     // rect(this.x, this.y, 30, 30);
   }
-  //Funcion que determina el movimiento de la roca.
+  //Function that determines the movement of the rock.
   this.moverse = function() {
     this.y = this.y + 5;
     if (this.y > windowHeight) {
@@ -631,12 +631,12 @@ function roca(aX, aY) {
 }
 
 function bonoR(cX, cY) {
-  // caraceristicas
+  // Characteristics
   this.x = cX;
   this.y = cY;
   var aceptado = false;
-  // habilidades
-  //Función que crea la forma de la roca.
+  // Skills
+  //Function that creates the shape of the red score bonus.
   this.dibujarse = function() {
     if (aceptado == false) {
       image(bonosR, this.x, this.y, 60, 60);
@@ -644,7 +644,7 @@ function bonoR(cX, cY) {
       // rect(this.x, this.y, 50, 30);
     }
   }
-  //Funcion que determina el movimiento de la roca.
+  //Function that determines the movement of the red score bonus.
   this.moverse = function() {
     this.y = this.y + 5;
     if (this.y > windowHeight) {
@@ -662,12 +662,12 @@ function bonoR(cX, cY) {
 }
 
 function bonoG(dX, dY) {
-  // caraceristicas
+  // Characteristics
   this.x = dX;
   this.y = dY;
   var aceptado = false;
-  // habilidades
-  //Función que crea la forma de la roca.
+  // Skills
+  //Function that creates the shape of the green score bonus.
   this.dibujarse = function() {
     if (aceptado == false) {
       image(bonosG, this.x, this.y, 60, 60);
@@ -675,7 +675,7 @@ function bonoG(dX, dY) {
       // rect(this.x, this.y, 50, 30);
     }
   }
-  //Funcion que determina el movimiento de la roca.
+  //Function that determines the movement of the green score bonus.
   this.moverse = function() {
     this.y = this.y + 5;
     if (this.y > windowHeight) {
@@ -693,12 +693,12 @@ function bonoG(dX, dY) {
 }
 
 function bonoB(bX, bY) {
-  // caraceristicas
+  // Characteristics
   this.x = bX;
   this.y = bY;
   var aceptado = false;
-  // habilidades
-  //Función que crea la forma de la roca.
+  // Skills
+  //Function that creates the shape of the blue score bonus.
   this.dibujarse = function() {
     if (aceptado == false) {
       image(bonosB, this.x, this.y, 60, 60);
@@ -706,7 +706,7 @@ function bonoB(bX, bY) {
       // rect(this.x, this.y, 50, 30);
     }
   }
-  //Funcion que determina el movimiento de la roca.
+  //Function that determines the movement of the blue score bonus.
   this.moverse = function() {
     this.y = this.y + 5;
     if (this.y > windowHeight) {
