@@ -4,7 +4,7 @@ function setup()
   createCanvas(600, 600);
 	background(251, 240, 199);
   
-  //3er plano  
+  // 3rd plane.
   fill(123,158,186,120);
   beginShape();
   vertex(206, 368);
